@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Média</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        input {
+            margin: 10px;
+            padding: 5px;
+            width: 150px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cálculo de Média</h1>
+    <form id="mediaForm">
+        <div>
+            <label for="trabalho1">Trabalho 1:</label>
+            <input type="number" id="trabalho1" placeholder="Nota 1" required>
+        </div>
+        <div>
+            <label for="trabalho2">Trabalho 2:</label>
+            <input type="number" id="trabalho2" placeholder="Nota 2" required>
+        </div>
+        <div>
+            <label for="trabalho3">Trabalho 3:</label>
+            <input type="number" id="trabalho3" placeholder="Nota 3" required>
+        </div>
+        <button type="button" onclick="calcularMedia()">Calcular Média</button>
+    </form>
+
+    <div class="result" id="resultado"></div>
+
+    <script>
+        function calcularMedia() {
+            const nota1 = parseFloat(document.getElementById('trabalho1').value);
+            const nota2 = parseFloat(document.getElementById('trabalho2').value);
+            const nota3 = parseFloat(document.getElementById('trabalho3').value);
+
+            if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3)) {
+                alert("Por favor, insira todas as notas.");
+                return;
+            }
+
+            const media = (nota1 + nota2 + nota3) / 3;
+            let conceito = "";
+
+            if (media >= 90) {
+                conceito = "A";
+            } else if (media >= 70) {
+                conceito = "B";
+            } else if (media >= 60) {
+                conceito = "C";
+            } else if (media >= 40) {
+                conceito = "D";
+            } else {
+                conceito = "E";
+            }
+
+            const resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.innerHTML = `Média: ${media.toFixed(2)}<br>Conceito: ${conceito}`;
+        }
+    </script>
+</body>
+</html>

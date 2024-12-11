@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contadores para contar algo</title>
+   <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #f8f8f8, #464545);
+        color: #000000;
+    }
+
+    h1 {
+        text-align: center;
+        margin: 20px 0;
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    h2 {
+        text-align: center;
+        margin: 20px 0;
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 60%;
+        margin: 30px auto;
+        background: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: center;
+    }
+
+    th {
+        background: #0e0d0d;
+        color: #fff;
+        font-size: 18px;
+    }
+
+    td {
+        font-size: 16px;
+    }
+
+    button {
+        background: #0d0d0e;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 12px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+</style>
+    <script>
+        function increment(id) {
+            const qtyElement = document.getElementById(id);
+            let currentValue = parseInt(qtyElement.textContent);
+            qtyElement.textContent = currentValue + 1;
+        }
+
+        function decrement(id) {
+            const qtyElement = document.getElementById(id);
+            let currentValue = parseInt(qtyElement.textContent);
+            if (currentValue > 0) {
+                qtyElement.textContent = currentValue - 1;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Contadores</h1>
+    <h2>Douglas e Bernardo Apolônio</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Quantidade</th>
+                <th>Opções</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Copos de Àgua</td>
+                <td id="copos">0</td>
+                <td>
+                    <button onclick="increment('copos')">+</button>
+                    <button onclick="decrement('copos')">-</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Pontos</td>
+                <td id="pontos">0</td>
+                <td>
+                    <button onclick="increment('pontos')">+</button>
+                    <button onclick="decrement('pontos')">-</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Voltas na Quadra</td>
+                <td id="voltas">0</td>
+                <td>
+                    <button onclick="increment('voltas')">+</button>
+                    <button onclick="decrement('voltas')">-</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Idas ao Banheiro</td>
+                <td id="idas">0</td>
+                <td>
+                    <button onclick="increment('idas')">+</button>
+                    <button onclick="decrement('idas')">-</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Fusca azuis</td>
+                <td id="fuscas">0</td>
+                <td>
+                    <button onclick="increment('fuscas')">+</button>
+                    <button onclick="decrement('fuscas')">-</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

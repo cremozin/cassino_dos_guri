@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo do Craps</title>
+    <link rel="stylesheet" href="questao3.css">
+ 
+</head>
+<body>
+
+    <h1>Jogo do Craps</h1>
+    <h2>Bernardo Apolônio e Douglas Oliveira</h2>
+    
+    <div>
+        <input type="text" id="dado1" disabled placeholder="Dado 1">
+        <input type="text" id="dado2" disabled placeholder="Dado 2">
+    </div>
+
+    <div>
+        <input type="text" id="soma" disabled placeholder="Soma">
+        <input type="text" id="pontuacao" disabled placeholder="Pontuação">
+    </div>
+    
+    <button id="rollButton">Rolar os dados</button>
+    
+    <div id="message">Clique no botão para jogar</div>
+
+    <script>
+   
+    function rolarDados() {
+           
+            const dado1 = Math.floor(Math.random() * 6) + 1;
+            const dado2 = Math.floor(Math.random() * 6) + 1;
+            const soma = dado1 + dado2;
+            
+           
+            document.getElementById('dado1').value = dado1;
+            document.getElementById('dado2').value = dado2;
+            document.getElementById('soma').value = soma;
+
+            
+            let pontuacao = document.getElementById('pontuacao').value;
+            const messageElement = document.getElementById('message');
+
+            if (pontuacao === '') {
+              
+                if (soma === 7 || soma === 11) {
+                    messageElement.innerHTML = "O jogador venceu! Clique no botão para jogar novamente";
+                    document.getElementById('pontuacao').value = ''; 
+                } else if (soma === 2 || soma === 3 || soma === 12) {
+                    messageElement.innerHTML = "A casa ganhou! Clique no botão para jogar novamente";
+                    document.getElementById('pontuacao').value = ''; 
+                    
+                    document.getElementById('pontuacao').value = soma;
+                    messageElement.innerHTML = "Jogue os dados novamente";
+                }
+            } else {
+              
+let pontuacao = parseInt(document.getElementById('pontuacao').value, 10); 
+
+if (soma === 7) {
+    messageElement.innerHTML = "A casa ganhou! Clique no botão para jogar novamente";
+    document.getElementById('pontuacao').value = ''; 
+} else if (soma === pontuacao) {
+    messageElement.innerHTML = "O jogador venceu! Clique no botão para jogar novamente";
+    document.getElementById('pontuacao').value = ''; 
+} else {
+    messageElement.innerHTML = "Jogue os dados novamente";
+}
+
+                }
+            }
+
+       
+        document.getElementById('rollButton').addEventListener('click', rolarDados);
+
+    </script>
+
+     
+    </script>
+
+</body>
+</html>
